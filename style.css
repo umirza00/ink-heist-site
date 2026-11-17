@@ -75,7 +75,9 @@ h3 { font-family: var(--display); font-weight: 400; font-size: 22px; margin: 0 0
 .feature img { width: 72px; height: 72px; object-fit: contain; margin-bottom: 8px; }
 .feature p { margin: 0; color: var(--muted); }
 .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.shots img { border: 4px solid var(--ink); border-radius: 18px; box-shadow: 0 6px 0 var(--ink); background: var(--paper); }
+.shots figure { margin: 0; }
+.shots img { width: 100%; height: auto; aspect-ratio: 600 / 1304; object-fit: cover; border: 4px solid var(--ink); border-radius: 18px; box-shadow: 0 6px 0 var(--ink); background: var(--paper); }
+.shots figcaption { font-family: var(--hand); font-size: 19px; line-height: 1.25; text-align: center; margin-top: 12px; }
 .promise { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 28px; padding: 0; list-style: none; margin: 0; }
 .promise li { padding-left: 34px; position: relative; }
 .promise li::before { content: ""; position: absolute; left: 0; top: 4px; width: 22px; height: 22px; border-radius: 50%; background: var(--gold) url("assets/coin.png") center/22px no-repeat; }

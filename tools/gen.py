@@ -77,7 +77,7 @@ def home(lang):
                  f=[("thief_0_a.png", "Draw", "Your ink is a road for your thieves and a wall for your rival's. Plan a route, block theirs."),
                     ("head_1.png", "Lasso", "Circle a rival thief carrying gold with your ink. Lasso! The gold comes back."),
                     ("coin.png", "Steal", "Grab the gold bags that drop in the middle. Most gold when time runs out wins.")],
-                 shots="From real matches", promise_h="Fair by design",
+                 shots="In the game", caps=["Draw a road for your thieves.", "Grab the gold bag first!", "Gold Rush: double gold.", "Win the heist!"], promise_h="Fair by design",
                  promise=["Real money only buys looks. Never power.", "No paid loot boxes. You always see what you get.",
                           "Bots are always labeled BOT. PvP is real players only.", "No free-text chat. Quick emotes only.",
                           "The server decides every match result.", "Free to play."],
@@ -91,14 +91,14 @@ def home(lang):
                  f=[("thief_0_a.png", "Çiz", "Mürekkebin kendi hırsızlarına yol, rakibinkilere duvar. Yolunu planla, onunkini kes."),
                     ("head_1.png", "Kementle", "Altın taşıyan rakip hırsızın etrafını çiz. Kement! Altın geri gelir."),
                     ("coin.png", "Çal", "Ortaya düşen altın çuvallarını kap. Süre bitince en çok altını olan kazanır.")],
-                 shots="Gerçek maçlardan", promise_h="Adil olsun diye tasarlandı",
+                 shots="Oyundan kareler", caps=["Hırsızlarına yol çiz.", "Altın çuvalını ilk sen kap!", "Kement: hırsızı çiz, altını geri al.", "Ana menü: PvP veya botlarla antrenman."], promise_h="Adil olsun diye tasarlandı",
                  promise=["Gerçek parayla sadece görünüm alınır, asla güç.", "Ücretli sürpriz kutu yok. Ne alacağını her zaman görürsün.",
                           "Botlar her zaman BOT yazar. PvP sadece gerçek oyuncular.", "Serbest yazışma yok. Sadece hazır emojiler.",
                           "Her maçın sonucuna sunucu karar verir.", "Ücretsiz oyna."],
                  title="Ink Heist (Çiz & Çal): gerçek zamanlı 1v1 çizim düellosu",
                  desc="Yol çiz, altın çal, hırsızı kementle. iPhone ve Android için gerçek zamanlı 1v1 çizim oyunu.")
     feats = "".join(f'<div class="card feature"><img src="{r}assets/{i}" alt="" width="72" height="72"><h3>{h}</h3><p>{p}</p></div>' for i, h, p in t["f"])
-    shots = "".join(f'<img src="{r}assets/shot-{s}.jpg" alt="" width="360" height="780" loading="lazy">' for s in (4, 9, 14, 22))
+    shots = "".join(f'<figure><img src="{r}assets/{lang}-shot-{n}.jpg" alt="{c}" width="600" height="1304" loading="lazy"><figcaption>{c}</figcaption></figure>' for n, c in enumerate(t["caps"], 1))
     prom = "".join(f"<li>{x}</li>" for x in t["promise"])
     body = f"""
 <section class="hero">
