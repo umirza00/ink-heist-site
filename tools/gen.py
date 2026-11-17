@@ -79,7 +79,7 @@ def home(lang):
                     ("coin.png", "Steal", "Grab the gold bags that drop in the middle. Most gold when time runs out wins.")],
                  shots="In the game", caps=["Draw a road for your thieves.", "Grab the gold bag first!", "Gold Rush: double gold.", "Win the heist!"], promise_h="Fair by design",
                  promise=["Real money only buys looks. Never power.", "No paid loot boxes. You always see what you get.",
-                          "Bots are always labeled BOT. PvP is real players only.", "No free-text chat. Quick emotes only.",
+                          "Bots are always labeled BOT. PvP is real players only.", "No free-text chat. Preset emotes and quick messages only.",
                           "The server decides every match result.", "Free to play."],
                  title="Ink Heist: real-time 1v1 drawing battles",
                  desc="Draw roads, steal gold, lasso thieves. A real-time 1v1 drawing game for iPhone and Android.")
@@ -93,7 +93,7 @@ def home(lang):
                     ("coin.png", "Çal", "Ortaya düşen altın çuvallarını kap. Süre bitince en çok altını olan kazanır.")],
                  shots="Oyundan kareler", caps=["Hırsızlarına yol çiz.", "Altın çuvalını ilk sen kap!", "Kement: hırsızı çiz, altını geri al.", "Ana menü: PvP veya botlarla antrenman."], promise_h="Adil olsun diye tasarlandı",
                  promise=["Gerçek parayla sadece görünüm alınır, asla güç.", "Ücretli sürpriz kutu yok. Ne alacağını her zaman görürsün.",
-                          "Botlar her zaman BOT yazar. PvP sadece gerçek oyuncular.", "Serbest yazışma yok. Sadece hazır emojiler.",
+                          "Botlar her zaman BOT yazar. PvP sadece gerçek oyuncular.", "Serbest yazışma yok. Sadece hazır emojiler ve mesajlar.",
                           "Her maçın sonucuna sunucu karar verir.", "Ücretsiz oyna."],
                  title="Ink Heist (Çiz & Çal): gerçek zamanlı 1v1 çizim düellosu",
                  desc="Yol çiz, altın çal, hırsızı kementle. iPhone ve Android için gerçek zamanlı 1v1 çizim oyunu.")
@@ -134,6 +134,8 @@ def privacy(lang):
             ("Progress and stats", "Level, XP, coins, gems, unlocks, match results and a hidden skill rating.", "Progression, rewards and fair matchmaking."),
             ("Match inputs", "The lines you draw and the powers you use during a match.", "Our server replays the match to decide the result and stop cheating."),
             ("Purchases", "Product, transaction ID and receipt from Apple or Google. Payment details stay with Apple or Google; we never see your card.", "To deliver what you bought, prevent fraud, handle refunds and apply spending limits for minors."),
+            ("Friends and quick messages (13+ only)", "Your friend code, friend list, friend requests and blocks, recent opponents, online/last-seen time, and the preset quick messages you send to friends (we keep the last 50 per conversation, with times). There is no free text.", "So you can add friends, see who is online, send preset messages and play friendly matches."),
+            ("Gifts", "Gifts our team sends you (coins, gems or items, with a short note) and whether you claimed them.", "To deliver gifts and compensation into your inbox."),
             ("Notifications (only if you allow them)", "A push token, your time-zone offset, language and notification settings.", "Reminders and match calls at sensible times. Never sent to players under 13."),
             ("Technical data", "IP address, device and system type, and server logs.", "To connect you, keep the service secure and fix problems."),
         ]
@@ -156,7 +158,7 @@ def privacy(lang):
 <li>We do not show ads or use advertising IDs.</li>
 <li>We do not track you across other apps or websites.</li>
 <li>We do not sell or rent personal data.</li>
-<li>We do not offer free-text chat. Players can only send preset emotes.</li>
+<li>We do not offer free-text chat. Players can only send preset emotes and preset quick messages.</li>
 </ul>
 
 <h2>Who we share data with</h2>
@@ -165,13 +167,13 @@ def privacy(lang):
 <li><strong>Our hosting provider</strong>, which runs our servers and processes data only on our behalf.</li>
 <li><strong>Authorities</strong>, only when the law requires it.</li>
 </ul>
-<p>Your opponent sees your nickname, avatar, looks and level during a match. Nothing else.</p>
+<p>Your opponent sees your nickname, avatar, looks and level during a match. Your friends also see whether you are online or when you were last seen. Anyone with your friend code can send you a friend request; you can decline or block them at any time.</p>
 
 <h2>Children</h2>
-<p>We ask for a birth year with a neutral screen. Players under 13 get a limited account: no push notifications, no social features, and purchases are turned off unless a parent unlocks them. Purchases are off by default for everyone under 18 and have a monthly limit. A parent can ask us to delete a child's data at any time by email.</p>
+<p>We ask for a birth year with a neutral screen. Players under 13 get a limited account: no push notifications, no friends or messages, they cannot be found by friend code, and purchases are turned off unless a parent unlocks them. Purchases are off by default for everyone under 18 and have a monthly limit. A parent can ask us to delete a child's data at any time by email.</p>
 
 <h2>How long we keep data</h2>
-<p>We keep your data while your account exists. When you delete your account, we delete your account, profile, progress, wallet and notification registration. We keep purchase transaction records for as long as needed to prevent fraud, handle refunds and meet tax and legal duties. Server logs are kept for a limited time. If you play as a guest and delete the app, the ID on your device is gone and that progress can no longer be recovered.</p>
+<p>We keep your data while your account exists. When you delete your account, we delete your account, profile, progress, wallet, notification registration, friend list, friend code, messages and gifts. We keep purchase transaction records for as long as needed to prevent fraud, handle refunds and meet tax and legal duties. Server logs are kept for a limited time. If you play as a guest and delete the app, the ID on your device is gone and that progress can no longer be recovered.</p>
 <p>How to delete your account: <a href="{href('en', 'delete', 'en')}">Delete your account</a>.</p>
 
 <h2>Your rights</h2>
@@ -195,6 +197,8 @@ def privacy(lang):
         ("İlerleme ve istatistikler", "Seviye, XP, coin, elmas, açılan içerikler, maç sonuçları ve gizli beceri puanı.", "İlerleme, ödüller ve adil eşleştirme."),
         ("Maç girdileri", "Maç sırasında çizdiğin çizgiler ve kullandığın güçler.", "Sunucumuz maçı yeniden oynatıp sonucu belirler ve hileyi önler."),
         ("Satın almalar", "Apple veya Google'dan ürün, işlem numarası ve makbuz. Ödeme bilgilerin Apple veya Google'da kalır; kartını asla görmeyiz.", "Satın aldığını teslim etmek, dolandırıcılığı önlemek, iadeleri yürütmek ve reşit olmayanlar için harcama sınırı uygulamak."),
+        ("Arkadaşlar ve hazır mesajlar (sadece 13+)", "Arkadaş kodun, arkadaş listen, arkadaşlık istekleri ve engellediklerin, son rakiplerin, çevrimiçi/son görülme zamanın ve arkadaşlarına gönderdiğin hazır mesajlar (her sohbette son 50 mesaj, zamanıyla). Serbest metin yoktur.", "Arkadaş ekleyebilmen, kimin çevrimiçi olduğunu görebilmen, hazır mesaj gönderebilmen ve dostluk maçı oynayabilmen için."),
+        ("Hediyeler", "Ekibimizin gönderdiği hediyeler (coin, elmas veya eşya ve kısa bir not) ve alıp almadığın.", "Hediye ve telafileri gelen kutuna ulaştırmak."),
         ("Bildirimler (sadece izin verirsen)", "Bildirim anahtarı, saat dilimi farkı, dil ve bildirim ayarların.", "Uygun saatlerde hatırlatma ve maç çağrısı. 13 yaş altına asla gönderilmez."),
         ("Teknik veriler", "IP adresi, cihaz ve sistem türü, sunucu kayıtları.", "Bağlantını kurmak, hizmeti güvende tutmak ve sorunları gidermek."),
     ]
@@ -217,7 +221,7 @@ def privacy(lang):
 <li>Reklam göstermiyor, reklam kimliği kullanmıyoruz.</li>
 <li>Seni başka uygulama veya sitelerde takip etmiyoruz.</li>
 <li>Kişisel verileri satmıyor veya kiralamıyoruz.</li>
-<li>Serbest yazışma yok. Oyuncular sadece hazır emojiler gönderebilir.</li>
+<li>Serbest yazışma yok. Oyuncular sadece hazır emojiler ve hazır mesajlar gönderebilir.</li>
 </ul>
 
 <h2>Verileri kimlerle paylaşıyoruz</h2>
@@ -226,13 +230,13 @@ def privacy(lang):
 <li><strong>Barındırma sağlayıcımız</strong>: sunucularımızı çalıştırır ve verileri sadece bizim adımıza işler.</li>
 <li><strong>Resmi makamlar</strong>: sadece yasa gerektirdiğinde.</li>
 </ul>
-<p>Rakibin maç sırasında takma adını, avatarını, görünümünü ve seviyeni görür. Başka bir şey görmez.</p>
+<p>Rakibin maç sırasında takma adını, avatarını, görünümünü ve seviyeni görür. Arkadaşların ayrıca çevrimiçi olup olmadığını veya en son ne zaman görüldüğünü görür. Arkadaş kodunu bilen herkes sana arkadaşlık isteği gönderebilir; istediğin zaman reddedebilir veya engelleyebilirsin.</p>
 
 <h2>Çocuklar</h2>
-<p>Doğum yılını tarafsız bir ekranla soruyoruz. 13 yaş altındaki oyuncular sınırlı bir hesap alır: bildirim yok, sosyal özellik yok ve bir ebeveyn açmadıkça satın alma kapalıdır. 18 yaş altındaki herkes için satın alma varsayılan olarak kapalıdır ve aylık sınırı vardır. Ebeveynler çocuklarının verilerinin silinmesini istedikleri zaman e-postayla isteyebilir.</p>
+<p>Doğum yılını tarafsız bir ekranla soruyoruz. 13 yaş altındaki oyuncular sınırlı bir hesap alır: bildirim yok, arkadaş ve mesaj yok, arkadaş koduyla bulunamazlar ve bir ebeveyn açmadıkça satın alma kapalıdır. 18 yaş altındaki herkes için satın alma varsayılan olarak kapalıdır ve aylık sınırı vardır. Ebeveynler çocuklarının verilerinin silinmesini istedikleri zaman e-postayla isteyebilir.</p>
 
 <h2>Verileri ne kadar saklıyoruz</h2>
-<p>Hesabın var olduğu sürece verilerini saklarız. Hesabını sildiğinde hesabını, profilini, ilerlemeni, cüzdanını ve bildirim kaydını sileriz. Satın alma işlem kayıtlarını dolandırıcılığı önlemek, iadeleri yürütmek ve vergi/yasal yükümlülükleri yerine getirmek için gerektiği kadar saklarız. Sunucu kayıtları sınırlı bir süre tutulur. Misafir olarak oynayıp uygulamayı silersen cihazındaki kimlik de silinir ve o ilerleme artık geri getirilemez.</p>
+<p>Hesabın var olduğu sürece verilerini saklarız. Hesabını sildiğinde hesabını, profilini, ilerlemeni, cüzdanını, bildirim kaydını, arkadaş listeni, arkadaş kodunu, mesajlarını ve hediyelerini sileriz. Satın alma işlem kayıtlarını dolandırıcılığı önlemek, iadeleri yürütmek ve vergi/yasal yükümlülükleri yerine getirmek için gerektiği kadar saklarız. Sunucu kayıtları sınırlı bir süre tutulur. Misafir olarak oynayıp uygulamayı silersen cihazındaki kimlik de silinir ve o ilerleme artık geri getirilemez.</p>
 <p>Hesabını nasıl silersin: <a href="{href('tr', 'delete', 'tr')}">Hesabını sil</a>.</p>
 
 <h2>Hakların</h2>
@@ -258,7 +262,8 @@ def support(lang):
             ("Am I playing against bots?", "PvP matches are real players only. Bots appear only in <strong>Practice vs Bots</strong>, and they are always labeled BOT."),
             ("A purchase didn't arrive or I want a refund.", "Close and reopen the game first; purchases are delivered when the store confirms them. Refunds are handled by the store: on iPhone at <a href=\"https://reportaproblem.apple.com\">reportaproblem.apple.com</a>, on Android in Google Play under <em>Payments &amp; subscriptions → Budget &amp; history</em>. If it still looks wrong, email us."),
             ("How do I turn off notifications?", "In the game: <strong>Settings → Reminders</strong> or <strong>Match calls</strong>. You can also turn them off in your phone's settings."),
-            ("Can I chat with other players?", "No. To keep the game safe, there is no free-text chat. You can send preset emotes and turn rival emotes off in Settings."),
+            ("Can I chat with other players?", "No. To keep the game safe, there is no free-text chat. You can send preset emotes in a match (and turn rival emotes off in Settings), and players 13 and older can send preset quick messages like “GG!” or “Wanna play?” to friends."),
+            ("How do I add a friend?", "Open Friends in the main menu. Share your 6-letter friend code, type a friend's code, or add someone from Recent opponents. You can remove or block anyone at any time. Friends are available from age 13."),
             ("How do I delete my account?", f"See <a href=\"{href('en', 'delete', 'en')}\">Delete your account</a>."),
         ]
         items = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faq)
@@ -278,7 +283,8 @@ def support(lang):
         ("Botlara karşı mı oynuyorum?", "PvP maçları sadece gerçek oyuncularla oynanır. Botlar sadece <strong>Botlarla antrenman</strong> modunda çıkar ve her zaman BOT yazar."),
         ("Satın aldığım gelmedi veya iade istiyorum.", "Önce oyunu kapatıp yeniden aç; satın almalar mağaza onayladığında teslim edilir. İadeleri mağaza yapar: iPhone'da <a href=\"https://reportaproblem.apple.com\">reportaproblem.apple.com</a>, Android'de Google Play'de <em>Ödemeler ve abonelikler → Bütçe ve geçmiş</em>. Hâlâ bir sorun varsa bize yaz."),
         ("Bildirimleri nasıl kapatırım?", "Oyunda: <strong>Ayarlar → Hatırlatmalar</strong> veya <strong>Maç çağrıları</strong>. Telefonunun ayarlarından da kapatabilirsin."),
-        ("Diğer oyuncularla yazışabilir miyim?", "Hayır. Oyunu güvenli tutmak için serbest yazışma yok. Hazır emojiler gönderebilir, rakip emojilerini Ayarlar'dan kapatabilirsin."),
+        ("Diğer oyuncularla yazışabilir miyim?", "Hayır. Oyunu güvenli tutmak için serbest yazışma yok. Maçta hazır emojiler gönderebilir (rakip emojilerini Ayarlar'dan kapatabilirsin), 13 yaş ve üstü oyuncular arkadaşlarına “GG!” veya “Maç atalım mı?” gibi hazır mesajlar gönderebilir."),
+        ("Nasıl arkadaş eklerim?", "Ana menüde Arkadaşlar'ı aç. 6 harfli arkadaş kodunu paylaş, arkadaşının kodunu yaz ya da Son rakipler listesinden ekle. İstediğin kişiyi istediğin zaman çıkarabilir veya engelleyebilirsin. Arkadaşlar 13 yaşından itibaren açıktır."),
         ("Hesabımı nasıl silerim?", f"<a href=\"{href('tr', 'delete', 'tr')}\">Hesabını sil</a> sayfasına bak."),
     ]
     items = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faq)
@@ -316,6 +322,7 @@ def delete(lang):
 <li>Your account, nickname, profile and avatar</li>
 <li>Progress, stats, unlocks, cosmetics, coins and gems</li>
 <li>Your notification registration</li>
+<li>Your friend list, friend code, quick messages and gifts</li>
 </ul>
 <h2>What we keep</h2>
 <p>Purchase transaction records (product, date, store transaction ID), for as long as needed to prevent fraud, handle refunds and meet tax and legal duties. Server logs are kept for a limited time. Gems and items in a deleted account cannot be restored or refunded by us.</p>
@@ -340,6 +347,7 @@ def delete(lang):
 <li>Hesabın, takma adın, profilin ve avatarın</li>
 <li>İlerlemen, istatistiklerin, açtığın içerikler, kozmetikler, coin ve elmasların</li>
 <li>Bildirim kaydın</li>
+<li>Arkadaş listen, arkadaş kodun, hazır mesajların ve hediyelerin</li>
 </ul>
 <h2>Neleri saklarız</h2>
 <p>Satın alma işlem kayıtları (ürün, tarih, mağaza işlem numarası): dolandırıcılığı önlemek, iadeleri yürütmek ve vergi/yasal yükümlülükler için gerektiği kadar. Sunucu kayıtları sınırlı bir süre tutulur. Silinen hesaptaki elmas ve eşyaları geri getiremeyiz veya iade edemeyiz.</p>
