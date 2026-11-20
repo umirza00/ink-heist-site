@@ -128,15 +128,14 @@ def privacy(lang):
     if lang == "en":
         rows = [
             ("Game account ID", "A random ID the app creates on your device, and the account ID our server assigns.", "To save your progress."),
-            ("Apple or Google sign-in (optional)", "An account identifier from Apple or Google. We do not ask for your name or email address.", "To keep your progress on every device."),
-            ("Age group", "You enter your birth year on the device. Only the age group (under 13, 13–17 or 18+) is sent. The year never leaves your device.", "To give each age group the right features and limits."),
+            ("Apple or Google sign-in (required to play)", "An account identifier from Apple or Google. We do not ask for your name or email address.", "To create your account and keep your progress on every device."),
             ("Nickname and looks", "A nickname built from our word lists (no free text), your avatar and cosmetics.", "To show your opponent who they are playing."),
             ("Progress and stats", "Level, XP, coins, gems, unlocks, match results and a hidden skill rating.", "Progression, rewards and fair matchmaking."),
-            ("Match inputs", "The lines you draw and the powers you use during a match.", "Our server replays the match to decide the result and stop cheating."),
+            ("Match inputs and replays", "The lines you draw and the powers you use during a match. For online (PvP) matches we keep this match record for 1 year.", "Our server replays the match to decide the result and stop cheating. We also use match records to check reports, fix bugs, and make gameplay clips of the game itself (other players' nicknames are never shown in our videos)."),
             ("Purchases", "Product, transaction ID and receipt from Apple or Google. Payment details stay with Apple or Google; we never see your card.", "To deliver what you bought, prevent fraud, handle refunds and apply spending limits for minors."),
-            ("Friends and quick messages (13+ only)", "Your friend code, friend list, friend requests and blocks, recent opponents, online/last-seen time, and the preset quick messages you send to friends (we keep the last 50 per conversation, with times). There is no free text.", "So you can add friends, see who is online, send preset messages and play friendly matches."),
+            ("Friends and quick messages", "Your friend code, friend list, friend requests and blocks, recent opponents, online/last-seen time, and the preset quick messages you send to friends (we keep the last 50 per conversation, with times). There is no free text.", "So you can add friends, see who is online, send preset messages and play friendly matches."),
             ("Gifts", "Gifts our team sends you (coins, gems or items, with a short note) and whether you claimed them.", "To deliver gifts and compensation into your inbox."),
-            ("Notifications (only if you allow them)", "A push token, your time-zone offset, language and notification settings.", "Reminders and match calls at sensible times. Never sent to players under 13."),
+            ("Notifications (only if you allow them)", "A push token, your time-zone offset, language and notification settings.", "Reminders, match calls and, if you turn on Event news, one message before an event ends — at sensible times."),
             ("Technical data", "IP address, device and system type, and server logs.", "To connect you, keep the service secure and fix problems."),
         ]
         table = "".join(f"<tr><td><strong>{a}</strong></td><td>{b}</td><td>{c}</td></tr>" for a, b, c in rows)
@@ -170,10 +169,10 @@ def privacy(lang):
 <p>Your opponent sees your nickname, avatar, looks and level during a match. Your friends also see whether you are online or when you were last seen. Anyone with your friend code can send you a friend request; you can decline or block them at any time.</p>
 
 <h2>Children</h2>
-<p>We ask for a birth year with a neutral screen. Players under 13 get a limited account: no push notifications, no friends or messages, they cannot be found by friend code, and purchases are turned off unless a parent unlocks them. Purchases are off by default for everyone under 18 and have a monthly limit. A parent can ask us to delete a child's data at any time by email.</p>
+<p>We do not ask for age and do not knowingly collect more data from children than from anyone else: there is no free-text chat, friends can only send preset messages, and notifications are only sent if allowed on the device. Purchases go through the App Store or Google Play, so the parental controls on the device (such as Ask to Buy or Google Play purchase approval) apply. A parent can ask us to delete a child's data at any time by email.</p>
 
 <h2>How long we keep data</h2>
-<p>We keep your data while your account exists. When you delete your account, we delete your account, profile, progress, wallet, notification registration, friend list, friend code, messages and gifts. We keep purchase transaction records for as long as needed to prevent fraud, handle refunds and meet tax and legal duties. Server logs are kept for a limited time. If you play as a guest and delete the app, the ID on your device is gone and that progress can no longer be recovered.</p>
+<p>We keep your data while your account exists. When you delete your account, we delete your account, profile, progress, wallet, notification registration, friend list, friend code, messages and gifts. Records of the online matches you played (who played, the moves and the result) are not deleted: we keep them for 1 year as evidence for fair play, reports and disputes, and then delete them. We keep purchase transaction records for as long as needed to prevent fraud, handle refunds and meet tax and legal duties. Server logs are kept for a limited time.</p>
 <p>How to delete your account: <a href="{href('en', 'delete', 'en')}">Delete your account</a>.</p>
 
 <h2>Your rights</h2>
@@ -191,15 +190,14 @@ def privacy(lang):
         return "Privacy Policy: Ink Heist", "What data Ink Heist uses, why, and how to delete it.", body
     rows = [
         ("Oyun hesabı kimliği", "Uygulamanın cihazında oluşturduğu rastgele bir kimlik ve sunucumuzun verdiği hesap kimliği.", "İlerlemeni kaydetmek."),
-        ("Apple veya Google ile giriş (isteğe bağlı)", "Apple ya da Google'dan gelen bir hesap kimliği. Adını veya e-posta adresini istemiyoruz.", "İlerlemeni her cihazda korumak."),
-        ("Yaş grubu", "Doğum yılını cihazda girersin. Sadece yaş grubu (13 altı, 13–17, 18+) gönderilir. Yıl cihazından çıkmaz.", "Her yaş grubuna uygun özellikleri ve sınırları sunmak."),
+        ("Apple veya Google ile giriş (oynamak için gerekli)", "Apple ya da Google'dan gelen bir hesap kimliği. Adını veya e-posta adresini istemiyoruz.", "Hesabını oluşturmak ve ilerlemeni her cihazda korumak."),
         ("Takma ad ve görünüm", "Kelime listelerimizden oluşan takma ad (serbest metin yok), avatar ve kozmetikler.", "Rakibine kiminle oynadığını göstermek."),
         ("İlerleme ve istatistikler", "Seviye, XP, coin, elmas, açılan içerikler, maç sonuçları ve gizli beceri puanı.", "İlerleme, ödüller ve adil eşleştirme."),
-        ("Maç girdileri", "Maç sırasında çizdiğin çizgiler ve kullandığın güçler.", "Sunucumuz maçı yeniden oynatıp sonucu belirler ve hileyi önler."),
+        ("Maç girdileri ve kayıtları", "Maç sırasında çizdiğin çizgiler ve kullandığın güçler. Çevrimiçi (PvP) maçların kaydını 1 yıl saklarız.", "Sunucumuz maçı yeniden oynatıp sonucu belirler ve hileyi önler. Maç kayıtlarını ayrıca şikâyetleri incelemek, hataları düzeltmek ve oyunun kendi oynanış videolarını hazırlamak için kullanırız (videolarımızda diğer oyuncuların takma adları asla gösterilmez)."),
         ("Satın almalar", "Apple veya Google'dan ürün, işlem numarası ve makbuz. Ödeme bilgilerin Apple veya Google'da kalır; kartını asla görmeyiz.", "Satın aldığını teslim etmek, dolandırıcılığı önlemek, iadeleri yürütmek ve reşit olmayanlar için harcama sınırı uygulamak."),
-        ("Arkadaşlar ve hazır mesajlar (sadece 13+)", "Arkadaş kodun, arkadaş listen, arkadaşlık istekleri ve engellediklerin, son rakiplerin, çevrimiçi/son görülme zamanın ve arkadaşlarına gönderdiğin hazır mesajlar (her sohbette son 50 mesaj, zamanıyla). Serbest metin yoktur.", "Arkadaş ekleyebilmen, kimin çevrimiçi olduğunu görebilmen, hazır mesaj gönderebilmen ve dostluk maçı oynayabilmen için."),
+        ("Arkadaşlar ve hazır mesajlar", "Arkadaş kodun, arkadaş listen, arkadaşlık istekleri ve engellediklerin, son rakiplerin, çevrimiçi/son görülme zamanın ve arkadaşlarına gönderdiğin hazır mesajlar (her sohbette son 50 mesaj, zamanıyla). Serbest metin yoktur.", "Arkadaş ekleyebilmen, kimin çevrimiçi olduğunu görebilmen, hazır mesaj gönderebilmen ve dostluk maçı oynayabilmen için."),
         ("Hediyeler", "Ekibimizin gönderdiği hediyeler (coin, elmas veya eşya ve kısa bir not) ve alıp almadığın.", "Hediye ve telafileri gelen kutuna ulaştırmak."),
-        ("Bildirimler (sadece izin verirsen)", "Bildirim anahtarı, saat dilimi farkı, dil ve bildirim ayarların.", "Uygun saatlerde hatırlatma ve maç çağrısı. 13 yaş altına asla gönderilmez."),
+        ("Bildirimler (sadece izin verirsen)", "Bildirim anahtarı, saat dilimi farkı, dil ve bildirim ayarların.", "Uygun saatlerde hatırlatma, maç çağrısı ve Etkinlik haberlerini açtıysan bir etkinlik bitmeden önce tek bir mesaj."),
         ("Teknik veriler", "IP adresi, cihaz ve sistem türü, sunucu kayıtları.", "Bağlantını kurmak, hizmeti güvende tutmak ve sorunları gidermek."),
     ]
     table = "".join(f"<tr><td><strong>{a}</strong></td><td>{b}</td><td>{c}</td></tr>" for a, b, c in rows)
@@ -233,10 +231,10 @@ def privacy(lang):
 <p>Rakibin maç sırasında takma adını, avatarını, görünümünü ve seviyeni görür. Arkadaşların ayrıca çevrimiçi olup olmadığını veya en son ne zaman görüldüğünü görür. Arkadaş kodunu bilen herkes sana arkadaşlık isteği gönderebilir; istediğin zaman reddedebilir veya engelleyebilirsin.</p>
 
 <h2>Çocuklar</h2>
-<p>Doğum yılını tarafsız bir ekranla soruyoruz. 13 yaş altındaki oyuncular sınırlı bir hesap alır: bildirim yok, arkadaş ve mesaj yok, arkadaş koduyla bulunamazlar ve bir ebeveyn açmadıkça satın alma kapalıdır. 18 yaş altındaki herkes için satın alma varsayılan olarak kapalıdır ve aylık sınırı vardır. Ebeveynler çocuklarının verilerinin silinmesini istedikleri zaman e-postayla isteyebilir.</p>
+<p>Yaş sormuyoruz ve çocuklardan diğer oyunculardan daha fazla veri bilerek toplamıyoruz: serbest yazışma yok, arkadaşlar sadece hazır mesaj gönderebilir ve bildirimler sadece cihazda izin verilirse gönderilir. Satın almalar App Store veya Google Play üzerinden yapılır; bu yüzden cihazdaki ebeveyn denetimleri (Satın Almak İçin Sor veya Google Play satın alma onayı gibi) geçerlidir. Ebeveynler çocuklarının verilerinin silinmesini istedikleri zaman e-postayla isteyebilir.</p>
 
 <h2>Verileri ne kadar saklıyoruz</h2>
-<p>Hesabın var olduğu sürece verilerini saklarız. Hesabını sildiğinde hesabını, profilini, ilerlemeni, cüzdanını, bildirim kaydını, arkadaş listeni, arkadaş kodunu, mesajlarını ve hediyelerini sileriz. Satın alma işlem kayıtlarını dolandırıcılığı önlemek, iadeleri yürütmek ve vergi/yasal yükümlülükleri yerine getirmek için gerektiği kadar saklarız. Sunucu kayıtları sınırlı bir süre tutulur. Misafir olarak oynayıp uygulamayı silersen cihazındaki kimlik de silinir ve o ilerleme artık geri getirilemez.</p>
+<p>Hesabın var olduğu sürece verilerini saklarız. Hesabını sildiğinde hesabını, profilini, ilerlemeni, cüzdanını, bildirim kaydını, arkadaş listeni, arkadaş kodunu, mesajlarını ve hediyelerini sileriz. Oynadığın çevrimiçi maçların kayıtları (kimin oynadığı, hamleler ve sonuç) silinmez: adil oyun, şikâyetler ve anlaşmazlıklar için kanıt olarak 1 yıl saklanır, sonra silinir. Satın alma işlem kayıtlarını dolandırıcılığı önlemek, iadeleri yürütmek ve vergi/yasal yükümlülükleri yerine getirmek için gerektiği kadar saklarız. Sunucu kayıtları sınırlı bir süre tutulur.</p>
 <p>Hesabını nasıl silersin: <a href="{href('tr', 'delete', 'tr')}">Hesabını sil</a>.</p>
 
 <h2>Hakların</h2>
@@ -258,12 +256,12 @@ def privacy(lang):
 def support(lang):
     if lang == "en":
         faq = [
-            ("How do I keep my progress on a new phone?", "Open <strong>Profile → Account</strong> and sign in with Apple or Google. Then sign in with the same account on your new phone. Guest progress is saved on one device only."),
+            ("How do I keep my progress on a new phone?", "Your progress is saved to the Apple or Google account you signed in with. On your new phone, sign in with the same account."),
             ("Am I playing against bots?", "PvP matches are real players only. Bots appear only in <strong>Practice vs Bots</strong>, and they are always labeled BOT."),
             ("A purchase didn't arrive or I want a refund.", "Close and reopen the game first; purchases are delivered when the store confirms them. Refunds are handled by the store: on iPhone at <a href=\"https://reportaproblem.apple.com\">reportaproblem.apple.com</a>, on Android in Google Play under <em>Payments &amp; subscriptions → Budget &amp; history</em>. If it still looks wrong, email us."),
             ("How do I turn off notifications?", "In the game: <strong>Settings → Reminders</strong> or <strong>Match calls</strong>. You can also turn them off in your phone's settings."),
-            ("Can I chat with other players?", "No. To keep the game safe, there is no free-text chat. You can send preset emotes in a match (and turn rival emotes off in Settings), and players 13 and older can send preset quick messages like “GG!” or “Wanna play?” to friends."),
-            ("How do I add a friend?", "Open Friends in the main menu. Share your 6-letter friend code, type a friend's code, or add someone from Recent opponents. You can remove or block anyone at any time. Friends are available from age 13."),
+            ("Can I chat with other players?", "No. To keep the game safe, there is no free-text chat. You can send preset emotes in a match (and turn rival emotes off in Settings), and you can send preset quick messages like “GG!” or “Wanna play?” to friends."),
+            ("How do I add a friend?", "Open Friends in the main menu. Share your 6-letter friend code, type a friend's code, or add someone from Recent opponents. You can remove or block anyone at any time."),
             ("How do I delete my account?", f"See <a href=\"{href('en', 'delete', 'en')}\">Delete your account</a>."),
         ]
         items = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faq)
@@ -279,12 +277,12 @@ def support(lang):
 </article>"""
         return "Support: Ink Heist", "Get help with Ink Heist: contact, purchases, progress and account deletion.", body
     faq = [
-        ("İlerlememi yeni telefona nasıl taşırım?", "<strong>Profil → Hesap</strong> bölümünden Apple veya Google ile giriş yap. Yeni telefonda aynı hesapla giriş yap. Misafir ilerlemesi sadece tek cihazda saklanır."),
+        ("İlerlememi yeni telefona nasıl taşırım?", "İlerlemen giriş yaptığın Apple veya Google hesabına kaydedilir. Yeni telefonda aynı hesapla giriş yapman yeterli."),
         ("Botlara karşı mı oynuyorum?", "PvP maçları sadece gerçek oyuncularla oynanır. Botlar sadece <strong>Botlarla antrenman</strong> modunda çıkar ve her zaman BOT yazar."),
         ("Satın aldığım gelmedi veya iade istiyorum.", "Önce oyunu kapatıp yeniden aç; satın almalar mağaza onayladığında teslim edilir. İadeleri mağaza yapar: iPhone'da <a href=\"https://reportaproblem.apple.com\">reportaproblem.apple.com</a>, Android'de Google Play'de <em>Ödemeler ve abonelikler → Bütçe ve geçmiş</em>. Hâlâ bir sorun varsa bize yaz."),
         ("Bildirimleri nasıl kapatırım?", "Oyunda: <strong>Ayarlar → Hatırlatmalar</strong> veya <strong>Maç çağrıları</strong>. Telefonunun ayarlarından da kapatabilirsin."),
-        ("Diğer oyuncularla yazışabilir miyim?", "Hayır. Oyunu güvenli tutmak için serbest yazışma yok. Maçta hazır emojiler gönderebilir (rakip emojilerini Ayarlar'dan kapatabilirsin), 13 yaş ve üstü oyuncular arkadaşlarına “GG!” veya “Maç atalım mı?” gibi hazır mesajlar gönderebilir."),
-        ("Nasıl arkadaş eklerim?", "Ana menüde Arkadaşlar'ı aç. 6 harfli arkadaş kodunu paylaş, arkadaşının kodunu yaz ya da Son rakipler listesinden ekle. İstediğin kişiyi istediğin zaman çıkarabilir veya engelleyebilirsin. Arkadaşlar 13 yaşından itibaren açıktır."),
+        ("Diğer oyuncularla yazışabilir miyim?", "Hayır. Oyunu güvenli tutmak için serbest yazışma yok. Maçta hazır emojiler gönderebilir (rakip emojilerini Ayarlar'dan kapatabilirsin) ve arkadaşlarına “GG!” veya “Maç atalım mı?” gibi hazır mesajlar gönderebilir."),
+        ("Nasıl arkadaş eklerim?", "Ana menüde Arkadaşlar'ı aç. 6 harfli arkadaş kodunu paylaş, arkadaşının kodunu yaz ya da Son rakipler listesinden ekle. İstediğin kişiyi istediğin zaman çıkarabilir veya engelleyebilirsin."),
         ("Hesabımı nasıl silerim?", f"<a href=\"{href('tr', 'delete', 'tr')}\">Hesabını sil</a> sayfasına bak."),
     ]
     items = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faq)
@@ -310,7 +308,7 @@ def delete(lang):
 <p class="meta">Ink Heist (Çiz &amp; Çal)</p>
 <h2>In the game</h2>
 <ol class="steps">
-<li>Open <strong>Profile</strong> from the main menu.</li>
+<li>Open <strong>Settings</strong> from the main menu.</li>
 <li>Tap <strong>Account</strong>.</li>
 <li>Tap <strong>Delete account</strong>, then tap again to confirm.</li>
 </ol>
@@ -335,7 +333,7 @@ def delete(lang):
 <p class="meta">Ink Heist (Çiz &amp; Çal)</p>
 <h2>Oyunun içinden</h2>
 <ol class="steps">
-<li>Ana menüden <strong>Profil</strong>'i aç.</li>
+<li>Ana menüden <strong>Ayarlar</strong>'ı aç.</li>
 <li><strong>Hesap</strong>'a dokun.</li>
 <li><strong>Hesabı sil</strong>'e dokun, onaylamak için tekrar dokun.</li>
 </ol>
